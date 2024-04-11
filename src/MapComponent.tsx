@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, SetStateAction } from "react";
 import "ol/ol.css";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -11,8 +11,8 @@ import { Style, Fill, Stroke, Circle } from "ol/style";
 
 const MapComponent = () => {
   const mapRef = useRef<any>();
-  const [map, setMap] = useState<any>(null);
-  const [draw, setDraw] = useState<Draw | null>(null);
+  const [map, setMap] = useState<SetStateAction<Map>| any>(null);
+  const [draw, setDraw] = useState<SetStateAction<Draw>| null>(null);
   const [coordinates, setCoordinates] = useState<{
     latitude: string;
     longitude: string;
